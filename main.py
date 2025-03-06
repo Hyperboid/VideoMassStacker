@@ -36,6 +36,9 @@ def main(argv):
         processPhase(f, output=output_path)
 
 def processPhase(l, /,*, output="Output"):
+    try:
+        os.mkdir(output)
+    except FileExistsError: pass
     files = []
     # Poor man's ipairs
     i = 0
